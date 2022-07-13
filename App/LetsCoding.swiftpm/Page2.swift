@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Page2: PageView {
+struct Page2: View {
     var body: some View {
         Text("Page2")
     }

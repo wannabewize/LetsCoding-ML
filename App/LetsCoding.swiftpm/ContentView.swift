@@ -16,6 +16,8 @@ struct ContentView: View {
                         .background(Color.gray.opacity(0.25))
                         .cornerRadius(8)
                 }
+                
+                makeNavigationLink(title: "Page3", page: Page2())
 
                 List {
 

@@ -14,16 +14,18 @@ struct SomePage: View {
     }
 }
 
-func makeNavigationLink<T: View>(title: String, page: T) {
+func makeNavigationLink<T: View>(title: String, page: T) -> NavigationLink<Text, T> {
     let link : NavigationLink<Text, T> = NavigationLink {
-        SomePage()
+        page
     } label: {
         Text(title)
             .frame(maxWidth: .infinity, alignment: .leading)
             .multilineTextAlignment(.leading)
             .padding()
             .background(Color.gray.opacity(0.25))
-            .cornerRadius(8) as! Text
+            .cornerRadius(8)
     }
+    
+    return link
 
 }
