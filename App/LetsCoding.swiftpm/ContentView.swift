@@ -6,29 +6,11 @@ struct ContentView: View {
             VStack {
                 ScrollView {
                     Text("Hello, world!")
-                }
-                
-                NavigationLink(destination: Page2()) {
-                    Text("Page2")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .multilineTextAlignment(.leading)
-                        .padding()
-                        .background(Color.gray.opacity(0.25))
-                        .cornerRadius(8)
-                }
-                
-                makeNavigationLink(title: "Page3", page: Page2())
+                }                
 
-                List {
+                NavigationButton(title: "Page3", destination: Page2())
+                NavigationButton(title: "Page4", destination: Page2())
 
-                    NavigationLink("Page2") {
-                        Page2()
-                    }
-                    NavigationLink("Page3") {
-                        
-                    }
-                }
-                .listStyle(.plain)
             }
             .padding()
             .navigationTitle("Lets Coding")
