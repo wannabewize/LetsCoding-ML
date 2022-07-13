@@ -10,7 +10,11 @@ import SwiftUI
 struct Page3: View {
     var body: some View {
         VStack {
-            Text("Page3")
+            ScrollView {
+                Text("Page3")
+                
+            }
+            
         }        
     }
 }

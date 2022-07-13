@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct GraphView: View {
     
@@ -22,21 +23,34 @@ struct GraphView: View {
         case All, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
     }
     
-    let values = [1, 5, 3, 6, 7, 2, 4, 8, 9]
+    let values = LineDataSet(dataPoints: [
+        LineChartDataPoint(value: 1),
+        LineChartDataPoint(value: 2),
+        LineChartDataPoint(value: 3),
+        LineChartDataPoint(value: 4),
+        LineChartDataPoint(value: 5),
+        LineChartDataPoint(value: 6),
+        LineChartDataPoint(value: 7),
+        LineChartDataPoint(value: 8),
+        LineChartDataPoint(value: 9)
+    ])
     
     var body: some View {
         VStack {
             GeometryReader { geometry in
-                Path { path in
-                    path.move(to: CGPoint(x: 100, y: 100))
-                    path.addLines([
-                        CGPoint(x: 200, y: 100),
-                        CGPoint(x: 200, y: 200),
-                        CGPoint(x: 100, y: 200),
-                        CGPoint(x: 100, y: 100)
-                    ])
-                }
-                .stroke(style: .init(lineWidth: 5, lineCap: .round, lineJoin: .round, miterLimit: 5))
+//                Path { path in
+//                    path.move(to: CGPoint(x: 100, y: 100))
+//                    path.addLines([
+//                        CGPoint(x: 200, y: 100),
+//                        CGPoint(x: 200, y: 200),
+//                        CGPoint(x: 100, y: 200),
+//                        CGPoint(x: 100, y: 100)
+//                    ])
+//                }
+//                .stroke(style: .init(lineWidth: 5, lineCap: .round, lineJoin: .round, miterLimit: 5))
+                
+                LineChart(chartData: LineChartData(dataSets: values)
+                )
             }
         }
         .navigationTitle("Graph View")

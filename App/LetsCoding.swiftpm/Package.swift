@@ -33,9 +33,15 @@ let package = Package(
             ]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/willdale/SwiftUICharts.git", "2.0.0"..<"3.0.0")
+    ],
     targets: [
         .executableTarget(
             name: "AppModule",
+            dependencies: [
+                .product(name: "SwiftUICharts", package: "swiftuicharts")
+            ],
             path: ".",
             resources: [
                 .process("Resources")
