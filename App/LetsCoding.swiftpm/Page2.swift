@@ -9,6 +9,14 @@ import SwiftUI
 
 struct Page2: View {
     var body: some View {
-        Text("Page2")
+        VStack {
+            ScrollView {
+                Text("Page2")
+            }
+            NavigationButton(title: "Graph", destination: GraphView())
+        }
+        .padding()
+        .navigationTitle("Page2")
+        .navigationBarTitleDisplayMode(.inline)        
     }
 }
