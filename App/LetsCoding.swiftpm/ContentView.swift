@@ -8,6 +8,7 @@ struct ContentView: View {
             }
             
             NavigationButton(title: "Mercedes", destination: CClass())
+            NavigationButton(title: "스토리", destination: Page1())
             NavigationButton(title: "Machine Learning", destination: MLView())
             NavigationButton(title: "Bio Diversity", destination: BioView())
             NavigationButton(title: "Sample Page", destination: SampleView())
