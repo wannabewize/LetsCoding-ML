@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Page2: View {
+struct CClass: View {
     var body: some View {
         VStack {
             ScrollView {
@@ -16,14 +16,11 @@ struct Page2: View {
 
                 코드네임 W201의 190이 전신이며, 메르세데스-벤츠가 차량 명명체계를 정비하게 되면서 1993년에 출시한 2세대 W202부터 C클래스라는 네임을 사용하고 있으며, 당시 이 세그먼트에서 왕 노릇을 하고 있었던 BMW 3시리즈와 경쟁하기 위해 출시되었다.
                 """)
-//                AsyncImage(url: Bundle.main.url(forResource: "c", withExtension: "jpg"))
-//                Image("c.jpg", bundle: Bundle.main)
                 BundleImage(fileName: "c", ext: "jpg")
-            }
-            NavigationButton(title: "Graph", destination: GraphView())
+            }            
         }
         .padding()
-        .navigationTitle("Page2")
+        .navigationTitle("Mercedes - C Class")
         .navigationBarTitleDisplayMode(.inline)        
     }
 }

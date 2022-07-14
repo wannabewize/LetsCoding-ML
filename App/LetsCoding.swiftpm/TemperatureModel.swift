@@ -8,7 +8,7 @@
 import Foundation
 import CoreML
 
-struct FestivalModel {
+struct TemperatureModel {
     static let countries =
     [
         "Argentina",
@@ -33,12 +33,12 @@ struct FestivalModel {
         "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ]
     
-    static var shared = FestivalModel()
+    static var shared = TemperatureModel()
     
     var monthModel: [String: MLModel] = [:]
         
     mutating func prepareModel() {
-        FestivalModel.monthNames.forEach { month in
+        TemperatureModel.monthNames.forEach { month in
             if let bundleUrl = Bundle.main.url(forResource: month, withExtension: "mlmodel"),
                let url = try? MLModel.compileModel(at: bundleUrl) {
                 
@@ -72,5 +72,25 @@ struct FestivalModel {
             print("can not find model for month")
             return nil
         }
+    }
+    
+    func predictTemperature(country: String, start: Int, end: Int) -> [(year: Int, temperature: Double)] {
+        var results: [(Int, Double)] = []
+        (start...end).forEach { year in
+            var temperatureSum: Double = 0
+            var count = 0
+            (0..<12).forEach { monthIndex in
+                let month = TemperatureModel.monthNames[monthIndex]
+                if let predict = predictTemperature(country: country, year: year, month: month) {
+            
+                    temperatureSum += predict
+                    count += 1
+                }
+            }
+            let averageTemperature = temperatureSum / Double(count)
+            print("year: ", year, "average temperature: ", averageTemperature)
+            results.append((year: year, temperatrure: averageTemperature))
+        }
+        return results
     }
 }

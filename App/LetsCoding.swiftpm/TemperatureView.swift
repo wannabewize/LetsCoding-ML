@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct FestivalView: View {
+struct TemperatureView: View {
     @State var selectedYear = 2000
-    @State var selectedMonth = FestivalModel.monthNames[6]
-    @State var selectedCountry = FestivalModel.countries[0]
+    @State var selectedMonth = TemperatureModel.monthNames[6]
+    @State var selectedCountry = TemperatureModel.countries[12]
     @State var predictedTemperature: Double?
     
     init() {
-        FestivalModel.shared.prepareModel()
+        TemperatureModel.shared.prepareModel()
     }
     
     func predictTemperature() {
         print("country :", selectedCountry, "year:", selectedYear, "month:", selectedMonth)
-        if let predict = FestivalModel.shared.predictTemperature(country: selectedCountry, year: selectedYear, month: selectedMonth) {
+        if let predict = TemperatureModel.shared.predictTemperature(country: selectedCountry, year: selectedYear, month: selectedMonth) {
             print("temperature :", predict)
             predictedTemperature = predict
         }
@@ -33,7 +33,7 @@ struct FestivalView: View {
             GeometryReader { geometry in
                 HStack(spacing: 0) {
                     Picker("Country", selection: $selectedCountry) {
-                        ForEach(FestivalModel.countries, id: \.self) { country in
+                        ForEach(TemperatureModel.countries, id: \.self) { country in
                             Text(country).tag(country)
                         }
                     }
@@ -51,7 +51,7 @@ struct FestivalView: View {
                     .clipped()
 
                     Picker("Month", selection: $selectedMonth) {
-                        ForEach(FestivalModel.monthNames, id: \.self) { month in
+                        ForEach(TemperatureModel.monthNames, id: \.self) { month in
                             Text("\(month)").tag(month)
                         }
                     }
@@ -82,8 +82,3 @@ struct FestivalView: View {
     }
 }
 
-struct Festival_Preview: PreviewProvider {
-    static var previews: some View {
-        FestivalView()
-    }
-}
