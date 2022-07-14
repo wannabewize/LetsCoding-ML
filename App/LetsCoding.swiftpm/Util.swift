@@ -25,3 +25,22 @@ struct NavigationButton<V: View>: View {
 
     }
 }
+
+struct BundleImage: View {
+    var fileName: String
+    var ext: String
+    var body: some View {
+        AsyncImage(url: Bundle.main.url(forResource: fileName, withExtension: ext)) { phase in
+            switch phase {
+            case .empty:
+                ProgressView()
+            case .success(let image):
+                image.resizable().aspectRatio(contentMode: .fit)
+            case .failure(let error):
+                Text("Error \(error.localizedDescription)")
+            @unknown default:
+                Text("Unknown Case")
+            }
+        }
+    }
+}
