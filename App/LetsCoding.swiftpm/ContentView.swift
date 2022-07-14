@@ -9,7 +9,8 @@ struct ContentView: View {
             
             NavigationButton(title: "Mercedes", destination: CClass())
             NavigationButton(title: "Machine Learning", destination: MLView())
-            NavigationButton(title: "Page3", destination: Page3())
+            NavigationButton(title: "Bio Diversity", destination: BioView())
+            NavigationButton(title: "Sample Page", destination: SampleView())
         }
         .padding()
         .navigationTitle("Lets Coding")

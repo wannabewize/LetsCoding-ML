@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct Page3: View {
+struct SampleView: View {
     var body: some View {
         VStack {
             ScrollView {
-                Text("Page3")
-                
+                Text("Lets Coding")
             }
-            
-        }        
+        }
+        .padding()
+        .navigationTitle("Sample Page")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
