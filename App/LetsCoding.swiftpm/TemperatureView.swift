@@ -14,7 +14,7 @@ struct TemperatureView: View {
     @State var predictedTemperature: Double?
     
     init() {
-        TemperatureModel.shared.prepareModel()
+//        TemperatureModel.shared.prepareModel()
     }
     
     func predictTemperature() {
@@ -75,7 +75,8 @@ struct TemperatureView: View {
             Spacer()
         }
         .onAppear {
-            self.predictTemperature()
+            TemperatureModel.shared.prepareModel()
+            self.predictTemperature()            
         }
         .navigationTitle("온도 예측")
         .navigationBarTitleDisplayMode(.inline)

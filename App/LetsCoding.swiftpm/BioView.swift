@@ -15,12 +15,9 @@ struct BioView: View {
     private var model: MLModel!
     
     init() {
-        prepareModel()
     }
     
-    mutating func prepareModel() {
-//        let urls = Bundle.main.urls(forResourcesWithExtension: "mlmodel", subdirectory: nil)
-        
+    mutating func prepareModel() {        
         if let bundleUrl = Bundle.main.url(forResource: "Biodiversity1", withExtension: "mlmodel"),
            let url = try? MLModel.compileModel(at: bundleUrl) {
             print("reading model file :", url)
@@ -93,5 +90,8 @@ struct BioView: View {
         .padding()
         .navigationTitle("Bio Deversity")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+//            self.prepareModel()
+        }
     }
 }

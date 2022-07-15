@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct Page2: View {
+struct Page_2_1: View {
     var body: some View {
         VStack {
             ScrollView {
-                Text("Page2")
+                Text("Page 2-1")
             }
         }
         .padding()
-        .navigationTitle("Page2")
+        .navigationTitle("Page 2-1")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -61,6 +61,9 @@ struct TemperatureGraphView: View {
         .padding()
         .navigationTitle("Graph View")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            TemperatureModel.shared.prepareModel()
+        }
     }
 }
 
