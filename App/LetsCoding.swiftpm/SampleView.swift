@@ -15,7 +15,8 @@ struct SampleView: View {
             }
         }
         .padding()
-        .navigationTitle("Sample Page")
+        .navigationTitle("Page-xx")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+

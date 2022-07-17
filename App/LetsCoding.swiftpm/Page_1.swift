@@ -16,11 +16,11 @@ struct Page_1: View {
                 
                 AssetImage("sun")
             }
-            NavigationButton(title: "텀블러를 가져간다", destination: Page_2_1())
-            NavigationButton(title: "그냥 간다.", destination: Page_2_2())
+            NavigationButton(title: "텀블러를 가져간다", destination: Page_15())
+            NavigationButton(title: "그냥 간다.", destination: Page_2())
         }
         .padding()
-        .navigationTitle("Page1")
+        .navigationTitle("Page-1")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Page_2_2: View {
+struct Page_2: View {
     var body: some View {
         VStack {
             ScrollView {
@@ -16,16 +16,16 @@ struct Page_2_2: View {
 
                 서둘러서 집에 도착하니 공기가 후덥지근하다. 시원한 바람이 필요하다.
                 """)
-                // 플레이그라운드 앱에 내장한 경우
-                BundleImage(fileName: "page_img_2_2", ext: "png")
+                AssetImage("cup")
             }
-            NavigationButton(title: "에어컨을 튼다", destination: SampleView())
-            NavigationButton(title: "선풍기를 튼다", destination: SampleView())
-            NavigationButton(title: "부채질을 한다.", destination: SampleView())
+            
+            NavigationButton(title: "에어컨을 튼다", destination: Page_3())
+            NavigationButton(title: "선풍기를 튼다", destination: Page_15())
+            NavigationButton(title: "부채질을 한다.", destination: Page_15())
 
         }
         .padding()
-        .navigationTitle("Page 2-2")
+        .navigationTitle("Page-2")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

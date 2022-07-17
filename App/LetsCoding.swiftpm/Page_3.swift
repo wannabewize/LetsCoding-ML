@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Page_2_1_1: View {
+struct Page_3: View {
     var body: some View {
         VStack {
             ScrollView {
@@ -18,13 +18,15 @@ struct Page_2_1_1: View {
                 그나저나 에어컨을 틀었는데 아직도 덥다. 헉! 에어컨 온도가 28도로 설정되어있다!! 뜨거운 바람은 용납할 수 없다. 온도를 내려야겠다. 몇 도로 맞출까?
                 """)
                 
-                // 플레이그라운드에서 이미지(jpg)를 추가한 경우
-//                Image("page_img_2_2_1")
-
+                AssetImage("wind")
             }
+            
+            NavigationButton(title: "25도", destination: Page_15())
+            NavigationButton(title: "20도", destination: Page_4())
+            
         }
         .padding()
-        .navigationTitle("Sample Page")
+        .navigationTitle("Page-3")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

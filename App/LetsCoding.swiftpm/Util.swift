@@ -55,11 +55,15 @@ struct AssetImage: View {
     
     var body: some View {
         GeometryReader { geo in
-            Image(name)
-                .resizable()
-                .scaledToFit()
-                .frame(minWidth: geo.size.width / 3, idealWidth: geo.size.width / 2, maxWidth: geo.size.width, minHeight: 200, idealHeight: geo.size.height / 2, maxHeight: 500, alignment: .top)
-                .padding(.top, 100)
+            HStack {
+                Spacer()
+                Image(name)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(minWidth: geo.size.width / 3, idealWidth: geo.size.width / 2, maxWidth: geo.size.width / 2, minHeight: 200, idealHeight: geo.size.height / 2, maxHeight: 500, alignment: .top)
+                    .padding(.top, 100)
+                Spacer()
+            }
         }
     }
 }
