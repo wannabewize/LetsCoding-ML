@@ -13,7 +13,6 @@ struct Page_8: View {
     
     var body: some View {
         VStack {
-//            MLView()
             TemperatureGraphView()
             Text("닫기")
                 .foregroundColor(.accentColor)
@@ -25,7 +24,6 @@ struct Page_8: View {
                     showPage9 = true
                     presentationMode.wrappedValue.dismiss()
                 }
-
         }
         .padding()
         .navigationTitle("Page-8")

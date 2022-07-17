@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Page_15: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -16,6 +18,15 @@ struct Page_15: View {
             }
             
             NavigationButton(title: "처음으로 돌아가기", destination: Page_Start())
+//            Text("처음")
+//                .foregroundColor(.accentColor)
+//                .frame(maxWidth: .infinity, alignment: .leading)
+//                .padding()
+//                .background(Color.gray.opacity(0.25))
+//                .cornerRadius(8)
+//                .onTapGesture {
+//
+//                }
         }
         .padding()
         .navigationTitle("Sample Page")

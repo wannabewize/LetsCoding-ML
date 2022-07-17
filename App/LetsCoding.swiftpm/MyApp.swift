@@ -6,8 +6,7 @@ struct MyApp: App {
         WindowGroup {
             NavigationView {
 //                ContentView()
-//                Page_Start()
-                Page_7()
+                Page_Start()
             }
         }
     }
