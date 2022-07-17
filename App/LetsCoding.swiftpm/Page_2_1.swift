@@ -14,7 +14,7 @@ struct Page_2_1: View {
                 Text("Page 2-1")
             }
         }
-        .padding()
+        .padding(10)
         .navigationTitle("Page 2-1")
         .navigationBarTitleDisplayMode(.inline)
     }

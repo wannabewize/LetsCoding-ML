@@ -5,8 +5,9 @@ struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
-            }            
+//                ContentView()
+                Page_Start()
+            }
         }
     }
 }
