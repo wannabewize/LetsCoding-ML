@@ -12,7 +12,7 @@ struct TemperatureGraphView: View {
     
     @State var selectedCountry = TemperatureModel.countries[12]
     @State var startYear = 2020
-    @State var endYear = 2050
+    @State var endYear = 2100
 
     enum Target:String{
         case All, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
@@ -32,7 +32,7 @@ struct TemperatureGraphView: View {
         VStack {
             GroupBox {
                 Stepper("시작 연도 : \(String(startYear))", value: $startYear, in: 2020...2100)
-                Stepper("종료 연도 : \(String(endYear))", value: $endYear, in: (startYear+1)...2100)
+                Stepper("종료 연도 : \(String(endYear))", value: $endYear, in: (startYear+1)...2200)
                 HStack {
                     Text("국가")
                     Spacer()
@@ -55,8 +55,8 @@ struct TemperatureGraphView: View {
             GeometryReader { geometry in
                 LineChart(chartData: LineChartData(dataSets: values))
                     .yAxisLabels(chartData: LineChartData(dataSets: values))
-                                
             }
+            .padding(.top, 10)
         }
         .padding()
         .navigationTitle("Graph View")

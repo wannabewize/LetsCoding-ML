@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Page_7: View {
+    @State var showMLPage = false
+    @State var showPage9 = false
     var body: some View {
         VStack {
             ScrollView {
@@ -16,9 +18,23 @@ struct Page_7: View {
                 """)
                 AssetImage("death")
             }
-            
-            NavigationButton(title: "머신러닝 보러가기", destination: MLView())
-            
+                        
+            Text("머신러닝 보러가기")
+                .foregroundColor(.accentColor)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .background(Color.gray.opacity(0.25))
+                .cornerRadius(8)
+                .onTapGesture(perform: {
+                   showMLPage = true
+                })
+                .fullScreenCover(isPresented: $showMLPage) {
+                    Page_8(showPage9: $showPage9)
+                }
+            // 모달이 닫히면 Page_9으로 이동
+            NavigationLink("다음", isActive: $showPage9) {
+                Page_9()
+            }.hidden()
         }
         .padding()
         .navigationTitle("Page-7")

@@ -16,7 +16,6 @@ struct MLView: View {
             }
             NavigationButton(title: "Temperature", destination: TemperatureView())
             NavigationButton(title: "Graph", destination: TemperatureGraphView())
-            NavigationButton(title: "다음", destination: Page_9())
         }
         .padding()
         .navigationTitle("Machine Learning")
