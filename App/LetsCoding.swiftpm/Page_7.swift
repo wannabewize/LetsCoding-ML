@@ -17,7 +17,7 @@ struct Page_7: View {
                 AssetImage("death")
             }
             
-            NavigationButton(title: "머신러닝 보러가기", destination: TemperatureView())
+            NavigationButton(title: "머신러닝 보러가기", destination: MLView())
             
         }
         .padding()

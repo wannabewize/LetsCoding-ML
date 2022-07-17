@@ -2,12 +2,12 @@
 //  File.swift
 //  LetsCoding
 //
-//  Created by wannabewize on 2022/07/14.
+//  Created by Jaehoon Lee on 2022/07/17.
 //
 
 import SwiftUI
 
-struct SampleView: View {
+struct Page_16: View {
     var body: some View {
         VStack {
             ScrollView {
@@ -15,7 +15,7 @@ struct SampleView: View {
             }
         }
         .padding()
-        .navigationTitle("Page-xx")
+        .navigationTitle("Page-16")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
