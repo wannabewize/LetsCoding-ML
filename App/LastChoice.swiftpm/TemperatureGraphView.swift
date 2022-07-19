@@ -18,14 +18,37 @@ struct TemperatureGraphView: View {
         case All, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
     }
     
-    @State var values = LineDataSet(dataPoints: [])
+    @State var chartData: LineChartData = LineChartData(dataSets: LineDataSet(dataPoints: []))
     
-    func predictPeriodTemperature() {
+    
+    func predictPeriodTemperature() -> LineChartData {
         let temperatures = TemperatureModel.shared.predictTemperature(country: selectedCountry, start: startYear, end: endYear)
         let data = temperatures.map { predict in
-            LineChartDataPoint(value: predict.temperature, xAxisLabel: String(predict.year))
+            LineChartDataPoint(value: predict.temperature, xAxisLabel: String(predict.year), description: String(predict.year))
         }
-        values = LineDataSet(dataPoints: data, legendTitle: "기온 예측")
+        let values = LineDataSet(dataPoints: data, legendTitle: "기온 예측")
+        
+        let chartStyle = LineChartStyle(
+            infoBoxPlacement: .header,
+//            infoBoxContentAlignment: <#T##InfoBoxAlignment#>, infoBoxValueFont: <#T##Font#>, infoBoxValueColour: <#T##Color#>, infoBoxDescriptionFont: <#T##Font#>, infoBoxDescriptionColour: <#T##Color#>, infoBoxBackgroundColour: <#T##Color#>, infoBoxBorderColour: <#T##Color#>, infoBoxBorderStyle: <#T##StrokeStyle#>, markerType: <#T##LineMarkerType#>, xAxisGridStyle: <#T##GridStyle#>, xAxisLabelPosition: <#T##XAxisLabelPosistion#>, xAxisLabelFont: <#T##Font#>, xAxisLabelColour: <#T##Color#>,
+            xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
+            xAxisTitle: "연도"
+//            xAxisTitleFont: <#T##Font#>, xAxisTitleColour: <#T##Color#>, xAxisBorderColour: <#T##Color?#>, yAxisGridStyle: <#T##GridStyle#>, yAxisLabelPosition: <#T##YAxisLabelPosistion#>, yAxisLabelFont: <#T##Font#>, yAxisLabelColour: <#T##Color#>,
+//            yAxisNumberOfLabels: 5
+//            yAxisLabelType: <#T##YAxisLabelType#>, yAxisTitle: <#T##String?#>, yAxisTitleFont: <#T##Font#>, yAxisTitleColour: <#T##Color#>, yAxisBorderColour: <#T##Color?#>, baseline: <#T##Baseline#>, topLine: <#T##Topline#>, globalAnimation: <#T##Animation#>
+        )
+        let xLabels = (startYear...endYear).filter { year in year % 10 == 0 }.map { year in String(year) }
+        let aaa = temperatures.map { (year, temperature) in temperature }
+        let max = aaa.max()!
+        let min = aaa.min()!
+        print("min:", min, "max:", max)
+        chartData = LineChartData(dataSets: values,
+                                      metadata: ChartMetadata(title: "기온 예측", subtitle: "\(startYear)-\(endYear)"),
+                                      xAxisLabels: xLabels,
+                                      yAxisLabels: [String(min), String(max)],
+                                      chartStyle: chartStyle,
+                                      noDataText: Text("데이터 없음"))
+        return chartData
     }
     
     var body: some View {
@@ -53,10 +76,12 @@ struct TemperatureGraphView: View {
             }
         
             GeometryReader { geometry in
-                LineChart(chartData: LineChartData(dataSets: values))
-                    .yAxisLabels(chartData: LineChartData(dataSets: values))
+                LineChart(chartData: chartData)
+                    .yAxisLabels(chartData: chartData)
+                    .xAxisLabels(chartData: chartData)
             }
             .padding(.top, 10)
+
         }
         .padding()
         .navigationTitle("Graph View")

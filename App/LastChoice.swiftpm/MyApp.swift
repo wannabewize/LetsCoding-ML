@@ -7,6 +7,7 @@ struct MyApp: App {
             NavigationView {
 //                ContentView()
                 Page_Start()
+//                TemperatureGraphView()
             }
         }
     }
