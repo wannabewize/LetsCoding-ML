@@ -18,8 +18,8 @@ struct Page_9: View {
                 """)
                 AssetImage("sun")
             }
-            NavigationButton(title: "그냥 간다", destination: Page_10())
-            NavigationButton(title: "텀블러를 챙긴다", destination: Page_16())
+            NavigationButton(title: "그냥 간다", destination: Page_16())
+            NavigationButton(title: "텀블러를 챙긴다", destination: Page_10())
         }
         .padding()
         .navigationTitle("Page-9")
