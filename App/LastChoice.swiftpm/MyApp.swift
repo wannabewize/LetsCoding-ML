@@ -8,6 +8,7 @@ struct MyApp: App {
 //                ContentView()
                 Page_Start()
 //                TemperatureGraphView()
+//                MLView()
             }
         }
     }
