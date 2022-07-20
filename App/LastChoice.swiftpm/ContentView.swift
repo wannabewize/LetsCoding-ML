@@ -6,8 +6,7 @@ struct ContentView: View {
             ScrollView {
                 Text("Playground, SwiftUI!")
             }
-
-            NavigationButton(title: "Mercedes", destination: CClass())
+            
             NavigationButton(title: "스토리", destination: Page_Start())
             NavigationButton(title: "Machine Learning", destination: MLView())
             NavigationButton(title: "Bio Diversity", destination: BioView())
