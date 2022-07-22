@@ -21,7 +21,7 @@ struct Page_14: View {
                 
                 AssetImage("walk")
             }
-            NavigationButton(title: "처음으로 돌아가기", destination: Page_Start())
+            NavigationButton(title: "처음으로 돌아가기", destination: ContentView())
         }
         .padding()
         .navigationTitle("Page-14")

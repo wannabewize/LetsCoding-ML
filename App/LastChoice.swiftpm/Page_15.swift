@@ -17,7 +17,7 @@ struct Page_15: View {
                 AssetImage("arrow")
             }
             
-            NavigationButton(title: "처음으로 돌아가기", destination: Page_Start())
+            NavigationButton(title: "처음으로 돌아가기", destination: ContentView())
 //            Text("처음")
 //                .foregroundColor(.accentColor)
 //                .frame(maxWidth: .infinity, alignment: .leading)

@@ -5,10 +5,7 @@ struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-//                ContentView()
-                Page_Start()
-//                TemperatureGraphView()
-//                MLView()
+                ContentView()
             }
         }
     }

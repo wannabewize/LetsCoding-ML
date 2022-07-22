@@ -12,7 +12,7 @@ struct TemperatureGraphView: View {
     
     @State var selectedCountry = TemperatureModel.countries[12]
     @State var startYear = 2020
-    @State var endYear = 2100
+    @State var endYear = 2050
 
     enum Target:String{
         case All, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec

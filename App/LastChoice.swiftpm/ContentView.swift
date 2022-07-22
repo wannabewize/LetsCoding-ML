@@ -2,18 +2,30 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            ScrollView {
-                Text("Playground, SwiftUI!")
+        ZStack {
+            VStack {
+                Spacer()
+                Image("cover")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
             }
+            .ignoresSafeArea(.all, edges: [.bottom, .leading, .trailing])
             
-            NavigationButton(title: "스토리", destination: Page_Start())
-            NavigationButton(title: "Machine Learning", destination: MLView())
-            NavigationButton(title: "Bio Diversity", destination: BioView())
-            NavigationButton(title: "Sample Page", destination: SampleView())
+            VStack {
+                Text("마지막 선택")
+                    .fontWeight(.heavy)
+                    .font(.system(size: 40))
+                Spacer()
+                NavigationLink {
+                    Page_1()
+                } label: {
+                    Text("화면을 눌러서 시작하세요.")
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                        .shadow(color: .gray, radius: 10, x: 5, y: 5)
+                }
+            }
+            .padding(.bottom, 80)
         }
-        .padding(0)
-        .navigationTitle("Lets Coding")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
