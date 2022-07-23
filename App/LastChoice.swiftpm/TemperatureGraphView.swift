@@ -12,7 +12,7 @@ struct TemperatureGraphView: View {
     
     @State var selectedCountry = TemperatureModel.countries[12]
     @State var startYear = 2020
-    @State var endYear = 2100
+    @State var endYear = 2050
 
     @State var chartData: LineChartData = LineChartData(dataSets: LineDataSet(dataPoints: []))
     
@@ -35,10 +35,11 @@ struct TemperatureGraphView: View {
             xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
             xAxisTitle: "연도",
             yAxisLabelFont: .system(size: 11),
-            yAxisLabelColour: .gray
+            yAxisLabelColour: .gray,
+            yAxisTitle: "기온"
         )
-        let xLabels = (startYear...endYear).filter { year in year % 10 == 0 }.map { year in String(year) }
-                
+        let xLabels = (startYear...endYear).filter { year in year % 5 == 0 }.map { year in String(year) }
+                        
         chartData = LineChartData(dataSets: values,
                                       metadata: ChartMetadata(title: "기온 예측", subtitle: "\(startYear)-\(endYear)"),
                                       xAxisLabels: xLabels,
@@ -69,14 +70,11 @@ struct TemperatureGraphView: View {
             } label: {
                 Text("정보")
             }
-        
-            GeometryReader { geometry in
-                LineChart(chartData: chartData)
-                    .xAxisLabels(chartData: chartData)
-                    .yAxisLabels(chartData: chartData, specifier: "%.02f")
-            }
-            .padding(.top, 10)
-
+            
+            LineChart(chartData: chartData)
+                .xAxisLabels(chartData: chartData)
+                .yAxisLabels(chartData: chartData, specifier: "%.02f")
+                .padding(.top, 10)
         }
         .padding()
         .navigationTitle("Graph View")
