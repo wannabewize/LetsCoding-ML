@@ -30,7 +30,7 @@ struct TemperatureModel {
     ]
     
     static let monthNames = [
-        "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        "Jul"
     ]
     
     static var shared = TemperatureModel()
@@ -79,7 +79,7 @@ struct TemperatureModel {
         (start...end).forEach { year in
             var temperatureSum: Double = 0
             var count = 0
-            (0..<12).forEach { monthIndex in
+            (0..<Self.monthNames.count).forEach { monthIndex in
                 let month = TemperatureModel.monthNames[monthIndex]
                 if let predict = predictTemperature(country: country, year: year, month: month) {
             
